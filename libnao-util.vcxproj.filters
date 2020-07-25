@@ -18,12 +18,27 @@
     <ClInclude Include="include\nao\strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\nao\logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\nao\steam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vdf_parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="libnao-util.licenseheader" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\strings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\steam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

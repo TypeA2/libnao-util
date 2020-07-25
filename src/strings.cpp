@@ -15,6 +15,8 @@
 
 #include "nao/strings.h"
 
+#include <windows.h>
+
 #include <sstream>
 #include <iomanip>
 #include <chrono>
@@ -145,4 +147,46 @@ namespace nao {
 
         return ss.str();
     }
+
+    std::wstring to_utf16(std::string_view str) {
+        int size = MultiByteToWideChar(
+            CP_UTF8, MB_ERR_INVALID_CHARS,
+            str.data(), static_cast<int>(str.size()),
+            nullptr, 0);
+
+        std::wstring result(size, '\0');
+
+        int converted = MultiByteToWideChar(
+            CP_UTF8, MB_ERR_INVALID_CHARS,
+            str.data(), static_cast<int>(str.size()),
+            result.data(), size);
+
+        if (converted != size) {
+            throw std::runtime_error("failed converting narrow string to wide string");
+        }
+
+        return result;
+    }
+
+    std::string to_utf8(std::wstring_view str) {
+        int size = WideCharToMultiByte(
+            CP_UTF8, WC_COMPOSITECHECK | WC_NO_BEST_FIT_CHARS,
+            str.data(), static_cast<int>(str.size()),
+            nullptr, 0, nullptr, nullptr);
+
+        std::string result(size, '\0');
+
+        int converted = WideCharToMultiByte(
+            CP_UTF8, WC_COMPOSITECHECK | WC_NO_BEST_FIT_CHARS,
+            str.data(), static_cast<int>(str.size()),
+            result.data(), size, nullptr, nullptr);
+
+        if (converted != size) {
+            throw std::runtime_error("failed converting wide string to narrow string");
+        }
+
+        return result;
+    }
+
+
 }
