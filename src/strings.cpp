@@ -187,6 +187,4 @@ namespace nao {
 
         return result;
     }
-
-
 }

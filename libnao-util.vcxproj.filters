@@ -27,6 +27,12 @@
     <ClInclude Include="include\vdf_parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\nao\object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\nao\event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="libnao-util.licenseheader" />
@@ -39,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\steam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
